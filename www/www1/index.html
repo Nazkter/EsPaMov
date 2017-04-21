@@ -48,7 +48,7 @@
         }
         try {
 
-          
+
           d3.json(url, function(e, data) {
               if (e) console.warn(e);
               var options = {
@@ -67,7 +67,7 @@
               add_structures();
           });
         } catch (e) {
-
+          alert(e.message);
         }
           // $.get('http://cdn.rcsb.org/pathway/Escherichia%20coli/e_coli_core.Core%20metabolism/e_coli_core.Core%20metabolism.json', function(data, status){
           //   alert(status);
