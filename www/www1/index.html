@@ -52,7 +52,7 @@
           d3.json(url, function(e, data) {
               if (e) console.warn(e);
               var options = {
-                  menu: 'all',
+                  menu: 'zoom',
                   use_3d_transform: true,
                   enable_editing: false,
                   fill_screen: true,
@@ -64,7 +64,7 @@
               // make a Builder
               var builder = escher.Builder(data, null, null, d3.select('#map_container'), options);
               // add the structures
-              add_structures();
+              //add_structures();
           });
         } catch (e) {
           alert(e.message);
