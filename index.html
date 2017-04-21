@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, minimum-scale=1.0, width=device-width, height=device-height" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/fa/css/font-awesome.min.css" />
+    <link href="css/material.min.css" rel="stylesheet"/>
+    <link href="css/material-select.min.css" rel="stylesheet"/>
+    <link href="css/dialog.css" rel="stylesheet"/>
+    <link href="css/builder.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/escher.js" charset="utf-8"></script>
+    <title>EsPaMoV</title>
+</head>
+<body>
+    <div class="" id="page-1" style="margin-left: auto;margin-right: auto;width: 400px;margin-top: 40px;">
+        <!-- LOGO
+        <div class="logo_img">
+            <img src="icon.png" alt="logo_MPV" width="80"/>
+        </div>
+        <!-- SEARCH INPUT -->
+        <div>
+            <div class="mdl-textfield mdl-js-textfield" style="width: 240px !important;">
+                <input class="mdl-textfield__input" type="text" id="protein_id">
+                <label class="mdl-textfield__label" for="protein_id">Insert the name of the organism</label>
+            </div>
+            <button id="search" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                Get Pathways
+            </button>
+        </div>
+        <!-- MAP SELECT -->
+        <div>
+          <select class="map_select"></select>
+        </div>
+        <!-- LOADING BAR -->
+        <div>
+            <div id="loading" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+        </div>
+        <div>
+            <p><strong>EXAMPLE:</strong></p>
+            <button class="nz_ex_btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Escherichia coli</button>
+        </div>
+        <div style="width: 508px;margin-left: -55px;">
+            <p style="font-size: 12px;color: #bfbfbf;text-align: justify;line-height: 0.99;margin-top: 29px;">
+                EsPaMoV is a mobile adaptation of the Escher Map Builder for the
+                visualization of pathways. These are important to understand how
+                the reactions in an organism are connected through the visualization
+                 of the biochemical reaction network (pathway).
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        COPYRIGHT UNIVERSIDAD DISTRITAL  -  GRUPO DE INVESTIGACIÓN  GICOGE
+    </footer>
+    <dialog id="error" class="mdl-dialog">
+      <h3 id="error_title" class="mdl-dialog__title">Error</h3>
+      <div class="mdl-dialog__content">
+        <p id="error_text">
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button id="close_error" type="button" class="mdl-button">Close</button>
+      </div>
+    </dialog>
+    <script src="js/dialog.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

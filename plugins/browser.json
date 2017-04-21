@@ -1,0 +1,43 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.bioinfud.escher"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.bioinfud.escher"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.phonegap.mpv"
+        }
+    }
+}
