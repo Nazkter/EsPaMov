@@ -12,7 +12,7 @@
   <script src="../js/jquery-1.11.3.min.js"></script>
   <script src="../js/material.min.js"></script>
   <link href="../css/dialog.css" rel="stylesheet"/>
-  <meta charset="utf-8"/>
+  <meta content="utf-8" http-equiv="encoding">
   <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
   <body>
     <div id="map_container"></div>
@@ -74,6 +74,9 @@
            alert(err.message);
        }
     });
+    $( document ).ready(function() {
+      alert( "ready!" );
+  });
     </script>
   </body>
 </html>
