@@ -46,25 +46,27 @@
           var url = 'http://cdn.rcsb.org/pathway/Escherichia coli/e_coli_core.Core metabolism/e_coli_core.Core metabolism.json';
         }
         try {
-        $.getJSON(url, function( data ) {
-          console.log(data);
-          var options = {
-              menu: 'zoom',
-              use_3d_transform: true,
-              enable_editing: false,
-              fill_screen: true,
-              reaction_styles: ['abs', 'color', 'size', 'text'],
-              never_ask_before_quit: true,
-              //make the primary metabolites larger to make room for structues
-              primary_metabolite_radius: 70,
-              first_load_callback: function(){
-                alert('done');
-              }
-          };
-
-          var div = document.getElementById('map_container');
-          var builder = escher.Builder(data, null, null, div, options);
-        });
+          $.get(url, function(data, status){
+            alert(status);
+            console.log(data);
+            var options = {
+                menu: 'zoom',
+                use_3d_transform: true,
+                enable_editing: false,
+                fill_screen: true,
+                reaction_styles: ['abs', 'color', 'size', 'text'],
+                never_ask_before_quit: true,
+                //make the primary metabolites larger to make room for structues
+                primary_metabolite_radius: 70,
+                first_load_callback: function(){
+                  alert('done');
+                }
+            };
+            var div = document.getElementById('map_container');
+            alert('div');
+            var builder = escher.Builder(data, null, null, div, options);
+            alert('builder');
+          }, 'json');
       } catch (e) {
         alert(e.message);
       }
