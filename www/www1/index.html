@@ -46,7 +46,7 @@
         }else{
           var url = 'http://cdn.rcsb.org/pathway/Escherichia coli/e_coli_core.Core metabolism/e_coli_core.Core metabolism.json';
         }
-        $.get( url, function( data ) {
+        $.get( encodeURI(url), function( data ) {
           alert( '$get:'+data );
         }).done(function() {
           alert( "second success" );
