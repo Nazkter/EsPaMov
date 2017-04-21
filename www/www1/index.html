@@ -47,6 +47,7 @@
         }
         try {
         $.getJSON(url, function( data ) {
+          console.log(data);
           var options = {
               menu: 'zoom',
               use_3d_transform: true,
@@ -57,6 +58,7 @@
               //make the primary metabolites larger to make room for structues
               primary_metabolite_radius: 70,
               first_load_callback: function(){
+                alert('done');
               }
           };
 
