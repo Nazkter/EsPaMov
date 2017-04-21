@@ -10,7 +10,7 @@ $('.map_select').on('change',function(e){
   draw_map(url);
 });
 function draw_map(url){
-  window.location.href = "www1/index.html?url="+url;
+  window.location.href = "/www1/index.html?url="+url;
   // d3.json('http://cdn.rcsb.org/pathway/Escherichia coli/e_coli_core.Core metabolism/e_coli_core.Core metabolism.json', function(e, data) {
   //     if (e) console.warn(e);
   //     var options = {
