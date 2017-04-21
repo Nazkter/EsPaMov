@@ -62,13 +62,11 @@
                   }
               };
               alert('option configured');
-              // make a Builder
               try {
-                  var builder = escher.Builder(data, null, null, d3.select('#map_container'), options);
+                var div = document.getElementById('map_container');
+                var builder = escher.Builder(data, null, null, div, options);
               } catch (e) {
                 alert(e.message);
-              } finally {
-
               }
               alert('after builder');
               // add the structures
