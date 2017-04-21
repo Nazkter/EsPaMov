@@ -39,14 +39,15 @@
     </script>
     <script>
      // load the map and embedded CSS
+     alert('1');
      var urlParams = new URLSearchParams(window.location.search);
      if(urlParams.has('url')){
        var url = urlParams.get('url');
      }else{
        var url = 'http://cdn.rcsb.org/pathway/Escherichia coli/e_coli_core.Core metabolism/e_coli_core.Core metabolism.json';
      }
-     console.log(urlParams.has('url')); // true
-     console.log(urlParams.get('url')); // "edit"
+     alert(urlParams.has('url'));
+     aler(urlParams.get('url'));
      d3.json(url, function(e, data) {
          if (e) console.warn(e);
          var options = {
