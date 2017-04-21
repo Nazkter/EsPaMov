@@ -58,17 +58,14 @@
                   //make the primary metabolites larger to make room for structues
                   primary_metabolite_radius: 70,
                   first_load_callback: function(){
-                    alert('Done!');
                   }
               };
-              alert('option configured');
               try {
                 var div = document.getElementById('map_container');
                 var builder = escher.Builder(data, null, null, div, options);
               } catch (e) {
                 alert(e.message);
               }
-              alert('after builder');
               // add the structures
               //add_structures();
 
