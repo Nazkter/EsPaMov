@@ -50,7 +50,7 @@
 
           alert('1');
           d3.json(url, function(e, data) {
-            alert('2');
+            alert(data);
               if (e) console.warn(e);
               alert('3');
               var options = {
@@ -64,8 +64,10 @@
                   primary_metabolite_radius: 70
               };
               alert('4');
+              var select = d3.select('#map_container');
+              alert('4.5');
               // make a Builder
-              var builder = escher.Builder(data, null, null, d3.select('#map_container'), options);
+              var builder = escher.Builder(data, null, null, select, options);
               alert('5');
               // add the structures
               //add_structures();
