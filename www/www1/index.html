@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.3.5/united/bootstrap.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.3.5/united/bootstrap.min.css"/>
   <script src="d3.min.js" charset="utf-8"></script>
   <script src="escher.js" charset="utf-8"></script>
   <link rel="stylesheet" href="builder.css"/>
@@ -28,6 +28,8 @@
       </div>
     </dialog>
     <script src="../js/dialog.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
     <script type="text/javascript">
     /*
     var dialog = document.querySelector('dialog');
@@ -39,7 +41,8 @@
     });*/
     </script>
     <script>
-    $( document ).ready(function() {
+    document.addEventListener('deviceready', init_graph(), false);
+    function init_graph() {
         var urlParams = new URLSearchParams(window.location.search);
         if(urlParams.has('url')){
           var url = urlParams.get('url');
@@ -103,7 +106,7 @@
           //     // add the structures
           //     //add_structures();
 
-    });
+    }
     </script>
   </body>
 </html>
