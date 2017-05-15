@@ -29,17 +29,8 @@
       </div>
     </dialog>
     <script src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
-    <script type="text/javascript">
-    /*
-    var dialog = document.querySelector('dialog');
-    dialogPolyfill.registerDialog(dialog);
-    dialog.showModal();
-    console.log('showModal()');
-    $('#close_error').on('click',function(){
-      dialog.close();
-    });*/
-    </script>
     <script>
     document.addEventListener('deviceready', init_graph, false);
     function init_graph() {
@@ -80,6 +71,5 @@
       init_graph();
     });
     </script>
-    <script type="text/javascript" src="../cordova.js"></script>
   </body>
 </html>
