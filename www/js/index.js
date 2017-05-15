@@ -5,29 +5,30 @@ var str = '{"maps":[{"map_name":"e_coli_core.Core metabolism","organism":"Escher
 var indexJSON = eval("(" + str + ")");
 
 $('.map_select').on('change',function(e){
+  // creo los enlaces
   var map = $(this).val();
-  var url = 'http://cdn.rcsb.org/pathway/'+global_name+'/'+map+'/'+map+'.json'
-  draw_map(url);
+  var graph_url = 'http://cdn.rcsb.org/pathway/'+global_name+'/'+map+'/'+map+'.json';
+  var info_url  = 'http://bigg.ucsd.edu/models/'+map.split('.')[0];
+  console.log(graph_url);
+  console.log(info_url);
+  // creo los tres botones:  Show graph, Model Info, Publications
+  $('#action_buttons').empty();
+  $('#action_buttons').append('<button onclick="javascript:draw_map(\''+graph_url.toString()+'\');" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Graph<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
+  $('#action_buttons').append('<button onclick="javascript:show_info(\''+info_url.toString()+'\');" id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Model Info<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
+  $('#action_buttons').append('<button id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Publications<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
+
+  //draw_map(url);
 });
 function draw_map(url){
   window.location.href = "www1/index.html?url="+url;
-  // d3.json('http://cdn.rcsb.org/pathway/Escherichia coli/e_coli_core.Core metabolism/e_coli_core.Core metabolism.json', function(e, data) {
-  //     if (e) console.warn(e);
-  //     var options = {
-  //         menu: 'all',
-  //         use_3d_transform: true,
-  //         enable_editing: false,
-  //         fill_screen: true,
-  //         reaction_styles: ['abs', 'color', 'size', 'text'],
-  //         never_ask_before_quit: true,
-  //         //make the primary metabolites larger to make room for structues
-  //         primary_metabolite_radius: 70
-  //     };
-  //     // make a Builder
-  //     var builder = escher.Builder(data, null, null, d3.select('#map_container'), options);
-  //     // add the structures
-  //     //add_structures();
-  // });
+}
+function show_info(url){
+  window.location.href = "www1/model_info.html?url="+url;
+}
+function show_pubs(url){
+  window.location.href = "www1/publications.html?url="+url;
+  //https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=50&term=escherichia+coli[title]
+  //https://www.ncbi.nlm.nih.gov/pubmed/27905793?report=xml&format=text
 }
 function loadGraph(prot_id){
   $('#loading').fadeIn();

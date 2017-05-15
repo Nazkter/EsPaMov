@@ -13,6 +13,7 @@
   <script src="../js/material.min.js"></script>
   <link href="../css/dialog.css" rel="stylesheet"/>
   <meta content="utf-8" http-equiv="encoding">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;">
   <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
   <body>
     <div id="map_container"></div>
@@ -28,7 +29,7 @@
       </div>
     </dialog>
     <script src="../js/dialog.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="../cordova.js"></script>
     <script type="text/javascript">
     /*
@@ -41,7 +42,7 @@
     });*/
     </script>
     <script>
-    document.addEventListener('deviceready', init_graph(), false);
+    document.addEventListener('deviceready', init_graph, false);
     function init_graph() {
         var urlParams = new URLSearchParams(window.location.search);
         if(urlParams.has('url')){
@@ -51,11 +52,9 @@
         }
         try {
 
-          alert('1');
           d3.json(url, function(e, data) {
             alert(data);
               if (e) console.warn(e);
-              alert('3');
               var options = {
                   menu: 'zoom',
                   use_3d_transform: true,
@@ -66,12 +65,9 @@
                   //make the primary metabolites larger to make room for structues
                   primary_metabolite_radius: 70
               };
-              alert('4');
               var select = d3.select('#map_container');
-              alert('4.5');
               // make a Builder
               var builder = escher.Builder(data, null, null, select, options);
-              alert('5');
               // add the structures
               //add_structures();
           });
