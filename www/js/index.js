@@ -15,7 +15,7 @@ $('.map_select').on('change',function(e){
   $('#action_buttons').empty();
   $('#action_buttons').append('<button onclick="javascript:draw_map(\''+graph_url.toString()+'\');" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Graph<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
   $('#action_buttons').append('<button onclick="javascript:show_info(\''+info_url.toString()+'\');" id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Model Info<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
-  $('#action_buttons').append('<button onclick="javascript:show_pubs(\''+map.split('.')[0]+'\');" id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Publications<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
+  $('#action_buttons').append('<button onclick="javascript:show_pubs(\''+global_name.split('.')[0]+'\');" id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Publications<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
 
   //draw_map(url);
 });

@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <!-- <link rel="stylesheet" type="text/css" href="../css/index.css" /> -->
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/fa/css/font-awesome.min.css" />
     <link href="../css/dialog.css" rel="stylesheet"/>
     <link href="../css/material.min.css" rel="stylesheet"/>
@@ -12,11 +11,27 @@
     <script src="../js/material.min.js"></script>
     <link href="../css/dialog.css" rel="stylesheet"/>
     <title></title>
+    <style media="screen">
+    footer {
+          background-color: #10b8af !important;
+          width: 100% !important;
+          bottom: 0 !important;
+          position: fixed !important;
+          font-size: 10px !important;
+          text-align: center !important;
+          font-weight: bold !important;
+          padding: 4px !important;
+          z-index: 100 !important;
+      }
+      a{
+          color: #019 !important;
+      }
+    </style>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
   </head>
   <body>
     <div id="container">
-        <table class="mdl-data-table mdl-js-data-table">
+        <table class="mdl-data-table mdl-js-data-table" style="margin-bottom: 30px;">
             <thead>
               <tr>
                 <th><strong>The following related publications were found:</strong></th>
@@ -59,7 +74,7 @@
           var pubmed_url = 'https://www.ncbi.nlm.nih.gov/pubmed/'+pub_id;
           $.get(pubMedURL,function(data){
             var title = data.replace('<pre>', '').replace('</pre>','').replace('1: ', '');
-            $('#pub_table').append('<tr><td>- <a href="'+pubmed_url+'">'+title+'</a></td></tr>');
+            $('#pub_table').append('<tr><td style="text-align: left;">- <a href="'+pubmed_url+'">'+title+'</a></td></tr>');
           });
         });
         console.log(data);
