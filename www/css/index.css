@@ -24,16 +24,16 @@ svg {
     overflow: auto !important;
 }
 footer {
-    background-color: #10b8af;
-    width: 100%;
-    bottom: 0;
-    position: fixed;
-    font-size: 0.7em;
-    text-align: center;
-    font-weight: bold;
-    padding: 4px;
-    z-index: 100;
-}
+      background-color: #10b8af !important;
+      width: 100% !important;
+      bottom: 0 !important;
+      position: fixed !important;
+      font-size: 10px !important;
+      text-align: center !important;
+      font-weight: bold !important;
+      padding: 4px !important;
+      z-index: 100 !important;
+  }
 header{
     position: fixed;
     top: 0;

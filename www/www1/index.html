@@ -6,6 +6,7 @@
   <script src="d3.min.js" charset="utf-8"></script>
   <script src="escher.js" charset="utf-8"></script>
   <link rel="stylesheet" href="builder.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/index.css" />
   <link rel="stylesheet" type="text/css" href="../css/fa/css/font-awesome.min.css" />
   <link href="../css/material.min.css" rel="stylesheet"/>
   <link href="../css/material-select.min.css" rel="stylesheet"/>
@@ -21,7 +22,6 @@
       <h3 id="error_title" class="mdl-dialog__title">Message</h3>
       <div class="mdl-dialog__content">
         <p id="error_text">
-          The graph may take a long time to load.
         </p>
       </div>
       <div class="mdl-dialog__actions">
@@ -30,11 +30,13 @@
     </dialog>
     <script src="../js/dialog.js"></script>
     <script type="text/javascript" src="../cordova.js"></script>
+    <script src="../js/dialog.js"></script>
+    <script src="../js/index.js"></script>
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script>
     document.addEventListener('deviceready', init_graph, false);
     function init_graph() {
-      alert('init_graph');
+        show_error('The graph may take a long time to render.');
         var urlParams = new URLSearchParams(window.location.search);
         if(urlParams.has('url')){
           var url = urlParams.get('url');
@@ -42,9 +44,7 @@
           var url = 'https://cdn.rcsb.org/pathway/Escherichia coli/e_coli_core.Core metabolism/e_coli_core.Core metabolism.json';
         }
         try {
-          alert(url);
           d3.json(url, function(e, data) {
-            alert(data);
               if (e) alert(e);
               var options = {
                   menu: 'zoom',
@@ -58,7 +58,6 @@
               };
               var select = d3.select('#map_container');
               // make a Builder
-              alert('builder');
               var builder = escher.Builder(data, null, null, select, options);
               // add the structures
               //add_structures();

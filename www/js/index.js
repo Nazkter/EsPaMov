@@ -15,7 +15,7 @@ $('.map_select').on('change',function(e){
   $('#action_buttons').empty();
   $('#action_buttons').append('<button onclick="javascript:draw_map(\''+graph_url.toString()+'\');" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Graph<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
   $('#action_buttons').append('<button onclick="javascript:show_info(\''+info_url.toString()+'\');" id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Model Info<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
-  $('#action_buttons').append('<button id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Publications<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
+  $('#action_buttons').append('<button onclick="javascript:show_pubs(\''+map.split('.')[0]+'\');" id="graph" style="margin-right: 5px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Publications<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>');
 
   //draw_map(url);
 });
@@ -25,8 +25,8 @@ function draw_map(url){
 function show_info(url){
   window.location.href = "www1/model_info.html?url="+url;
 }
-function show_pubs(url){
-  window.location.href = "www1/publications.html?url="+url;
+function show_pubs(term){
+  window.location.href = "www1/publications.html?term="+term;
   //https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=50&term=escherichia+coli[title]
   //https://www.ncbi.nlm.nih.gov/pubmed/27905793?report=xml&format=text
 }
