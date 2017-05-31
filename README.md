@@ -1,9 +1,6 @@
-# Mobile Protein Viewer (MPV)
+# EsPaMoV (Escher Paths Mobile Viewer)
  <h1>Descripción:</h1>
- MPV es una adaptación móvil del widget ProtVista de BioJS para la visualización de anotaciones de proteínas según su ubicación. MPV adiciona funcionalidades tales como la visualización de la secuencia en texto plano y un índice de publicaciones relacionadas a una proteína.
+Esta aplicación permite la visualización de redes de reacciones bioquímicas representadas en un mapa (Pathway). Los pathways sirven para entender la relación entre los genes y los metabolitos (Metabolites) que existen en una reacción bioquímica.
  
  <h1>Aplicación android:</h1>
- <a href="https://play.google.com/store/apps/details?id=com.phonegap.mpv&hl=es">https://play.google.com/store/apps/details?id=com.phonegap.mpv&hl=es</a>
- 
- <h1>Video-tutorial:</h1>
- <a href="https://youtu.be/vHZAI6uR8uM">https://youtu.be/vHZAI6uR8uM</a>
+ <a href="https://play.google.com/store/apps/details?id=com.phonegap.espamov&hl=en">https://play.google.com/store/apps/details?id=com.phonegap.espamov&hl=en</a>
