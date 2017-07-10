@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.3.5/united/bootstrap.min.css"/>
+  <script src="../js/jquery.min.js"/></script>
+  <script src="../js/bootstrap.min.js"/></script>
+  <link href="../css/bootstrap.min.css" rel="stylesheet"/>
   <script src="d3.min.js" charset="utf-8"></script>
   <script src="escher.js" charset="utf-8"></script>
   <link rel="stylesheet" href="builder.css"/>
   <link rel="stylesheet" type="text/css" href="../css/index.css" />
   <link rel="stylesheet" type="text/css" href="../css/fa/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css" />
   <link href="../css/material.min.css" rel="stylesheet"/>
   <link href="../css/material-select.min.css" rel="stylesheet"/>
   <script src="../js/jquery-1.11.3.min.js"></script>
+  <script src="../js/jquery-ui.min.js"></script>
   <script src="../js/material.min.js"></script>
   <link href="../css/dialog.css" rel="stylesheet"/>
   <meta content="utf-8" http-equiv="encoding">
   <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;">
   <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
   <body>
-    <div id="map_container"></div>
+      <div>
+          <input class="mdl-textfield__input" type="text" id="search_nodes" name="search_nodes" placeholder="Search element" style="height:2cm;display: inline;width: 70%;">
+          <button id="search_item" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="display: inline;width: 28%;height: 2cm;">Get info</button>
+      </div>
+    <div id="map_container" style="height: 90%;"></div>
     <dialog id="error" class="mdl-dialog">
       <h3 id="error_title" class="mdl-dialog__title">Message</h3>
       <div class="mdl-dialog__content">
@@ -34,7 +40,16 @@
     <script src="../js/index.js"></script>
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script>
+    var NODES;
+    var REACTIONS;
     document.addEventListener('deviceready', init_graph, false);
+    function unique(list) {
+        var result = [];
+        $.each(list, function(i, e) {
+            if ($.inArray(e, result) == -1) result.push(e);
+        });
+        return result;
+    }
     function init_graph() {
         show_error('The graph may take a long time to render.');
         var urlParams = new URLSearchParams(window.location.search);
@@ -46,11 +61,37 @@
         try {
           d3.json(url, function(e, data) {
               if (e) alert(e);
+              console.log(data);
+              var nodes = [];
+              for (var node in data[1].nodes) {
+                  var tmp_node = data[1].nodes[node]
+                  if(data[1].nodes[node].bigg_id){
+                      var bigg_id = data[1].nodes[node].bigg_id;
+                      nodes.push(bigg_id+' (Metabolite)')
+                  }
+
+              }
+
+              var reactions = [];
+              for (var node in data[1].reactions) {
+                  var tmp_node = data[1].reactions[node]
+                  if(data[1].reactions[node].bigg_id){
+                      var bigg_id = data[1].reactions[node].bigg_id;
+                      reactions.push(bigg_id+' (Reaction)')
+                  }
+
+              }
+              REACTIONS = unique(reactions);
+              NODES = unique(nodes);
+              var items_array = REACTIONS.concat(NODES);
+              $( "#search_nodes" ).autocomplete({
+                  source: items_array
+              });
               var options = {
                   menu: 'zoom',
                   use_3d_transform: true,
                   enable_editing: false,
-                  fill_screen: true,
+                  fill_screen: false,
                   reaction_styles: ['abs', 'color', 'size', 'text'],
                   never_ask_before_quit: true,
                   //make the primary metabolites larger to make room for structues
@@ -59,8 +100,6 @@
               var select = d3.select('#map_container');
               // make a Builder
               var builder = escher.Builder(data, null, null, select, options);
-              // add the structures
-              //add_structures();
           });
         } catch (e) {
           alert(e.message);
@@ -68,6 +107,26 @@
     }
     $(function(){
       init_graph();
+    });
+    $('#search_item').on('click', function(e){
+        var id_item = $('#search_nodes').val();
+        var is_node = NODES.indexOf(id_item);
+        if(is_node != (-1)){
+            var bigg_id = id_item.split(' ')[0].split('_');
+            bigg_id.pop();
+            bigg_id = bigg_id.join('_')
+            var url = 'http://bigg.ucsd.edu/universal/metabolites/'+bigg_id;
+            window.location.href =  url;
+        }else{
+            var is_reaction = REACTIONS.indexOf(id_item);
+            if(is_reaction != (-1)){
+                var bigg_id = id_item.split(' ')[0];
+                var url = 'http://bigg.ucsd.edu/universal/reactions/'+bigg_id;
+                window.location.href =  url;
+            }else{
+                alert('El elemento ingresado no existe.');
+            }
+        }
     });
     </script>
   </body>
